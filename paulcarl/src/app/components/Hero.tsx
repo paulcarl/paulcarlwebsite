@@ -1,7 +1,17 @@
+'use client';
+
 export default function Hero() {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.querySelector('#magnum-opus');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
-      className="relative h-[80vh] overflow-hidden flex items-center"
+      className="relative h-[100vh] overflow-hidden flex items-center"
       style={{
         backgroundImage: 'url(/paul-carl-hero-bg.png)',
         backgroundRepeat: 'repeat',
@@ -21,18 +31,11 @@ export default function Hero() {
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <div className="rounded-md shadow">
               <a
-                href="/projects"
+                href="#magnum-opus"
+                onClick={handleClick}
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-md text-black bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 md:py-4 md:text-lg md:px-10"
               >
-                View Projects
-              </a>
-            </div>
-            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <a
-                href="/contact"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[hsl(var(--secondary-foreground))] bg-[hsl(var(--secondary))] hover:bg-[hsl(var(--secondary))]/90 md:py-4 md:text-lg md:px-10"
-              >
-                Get in Touch
+                Open the Codex
               </a>
             </div>
           </div>
